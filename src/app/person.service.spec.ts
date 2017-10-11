@@ -23,6 +23,6 @@ describe('PersonService', () => {
   it('should call the API', () => {
     service.getRandomUser();
 
-    httpMock.expectOne('https://randomuser.me/api');
+    httpMock.expectOne({ url: 'https://randomuser.me/api', method: 'GET' });
   });
 });
