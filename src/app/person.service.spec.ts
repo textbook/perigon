@@ -25,4 +25,18 @@ describe('PersonService', () => {
 
     httpMock.expectOne({ url: 'https://randomuser.me/api', method: 'GET' });
   });
+
+  it('should expose the fetched data', done => {
+    const randomUser = {};
+    service.getRandomUser();
+
+    httpMock
+        .expectOne('https://randomuser.me/api')
+        .flush({ results: [randomUser] });
+
+    service.randomUser$.subscribe(user => {
+      expect(user).toEqual(randomUser);
+      done();
+    });
+  });
 });
