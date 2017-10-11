@@ -7,12 +7,13 @@ describe('PersonComponent', () => {
   let component: PersonComponent;
   let fixture: ComponentFixture<PersonComponent>;
 
+  const mediumImageSource = 'https://randomuser.me/api/portraits/med/women/88.jpg';
   const person: Person = {
     gender: 'female',
     name: { title: 'miss', first: 'jocelaine', last: 'da cruz' },
     picture: {
       large: 'https://randomuser.me/api/portraits/women/88.jpg',
-      medium: 'https://randomuser.me/api/portraits/med/women/88.jpg',
+      medium: mediumImageSource,
       thumbnail: 'https://randomuser.me/api/portraits/thumb/women/88.jpg'
     }
   };
@@ -34,5 +35,10 @@ describe('PersonComponent', () => {
   it('should display the supplied person', () => {
     expect(fixture.nativeElement.querySelector('.first-name').textContent)
         .toBe('Jocelaine');
+  });
+
+  it('should display their picture', () => {
+    expect(fixture.nativeElement.querySelector('img').src)
+        .toBe(mediumImageSource);
   });
 });
