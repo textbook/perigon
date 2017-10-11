@@ -13,6 +13,8 @@ export class PersonService {
   getRandomUser() {
     this.http
         .get('https://randomuser.me/api')
-        .subscribe();
+        .subscribe((result: any) => {
+          this.randomUserSubject.next(result.results[0]);
+        });
   }
 }
