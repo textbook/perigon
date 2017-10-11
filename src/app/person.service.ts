@@ -5,4 +5,5 @@ export class PersonService {
 
   constructor() { }
 
+  getRandomUser() { }
 }
