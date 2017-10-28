@@ -1,6 +1,7 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 
+import Spy = jasmine.Spy;
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 
@@ -54,5 +55,14 @@ describe('AppComponent', () => {
   it('should have a refresh button', () => {
     expect(fixture.nativeElement.querySelector('button').textContent)
         .toEqual('Refresh');
+  });
+
+  it('should fetch a new user when the button is clicked', () => {
+    (service.getRandomUser as Spy).calls.reset();
+
+    fixture.nativeElement.querySelector('button').click();
+    fixture.detectChanges();
+
+    expect(service.getRandomUser).toHaveBeenCalled();
   });
 });
