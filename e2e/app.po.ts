@@ -8,4 +8,8 @@ export class AppPage {
   getName() {
     return element(by.css('.first-name')).getText();
   }
+
+  refreshPerson() {
+    return element(by.buttonText('Refresh')).click();
+  }
 }
