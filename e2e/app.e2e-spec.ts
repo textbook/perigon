@@ -5,10 +5,10 @@ describe('perigon App', () => {
 
   beforeEach(() => {
     page = new AppPage();
+    page.navigateTo();
   });
 
-  it('should display welcome message', () => {
-    page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to pgn!');
+  it('should display a person', () => {
+    expect(page.getName()).not.toEqual('');
   });
 });
