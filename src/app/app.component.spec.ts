@@ -50,4 +50,9 @@ describe('AppComponent', () => {
     expect(fixture.nativeElement.querySelector('pgn-person').person)
         .toEqual(person);
   });
+
+  it('should have a refresh button', () => {
+    expect(fixture.nativeElement.querySelector('button').textContent)
+        .toEqual('Refresh');
+  });
 });
