@@ -8,7 +8,7 @@ import { Person } from '../person';
   styleUrls: ['./person.component.scss']
 })
 export class PersonComponent implements OnInit {
-  @Input() person: Person;
+  @Input() person?: Person;
 
   constructor() { }
 
@@ -16,7 +16,10 @@ export class PersonComponent implements OnInit {
   }
 
   get firstName(): string {
-    return this.titleCase(this.person.name.first);
+    if (this.person && this.person.name) {
+      return this.titleCase(this.person.name.first);
+    }
+    return '';
   }
 
   private titleCase(text: string): string {

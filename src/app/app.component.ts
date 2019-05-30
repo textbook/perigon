@@ -12,10 +12,11 @@ import { Person } from './person';
 export class AppComponent implements OnInit {
   person$: Observable<Person>;
 
-  constructor(private service: PersonService) { }
+  constructor(private service: PersonService) {
+    this.person$ = this.service.randomUser$;
+   }
 
   ngOnInit() {
-    this.person$ = this.service.randomUser$;
     this.service.getRandomUser();
   }
 }
