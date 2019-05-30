@@ -15,4 +15,11 @@ export class PersonComponent implements OnInit {
   ngOnInit() {
   }
 
+  get firstName(): string {
+    return this.titleCase(this.person.name.first);
+  }
+
+  private titleCase(text: string): string {
+    return `${text[0].toUpperCase()}${text.slice(1)}`;
+  }
 }
