@@ -14,15 +14,4 @@ export class PersonComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  get firstName(): string {
-    if (this.person && this.person.name) {
-      return this.titleCase(this.person.name.first);
-    }
-    return '';
-  }
-
-  private titleCase(text: string): string {
-    return `${text[0].toUpperCase()}${text.slice(1)}`;
-  }
 }
