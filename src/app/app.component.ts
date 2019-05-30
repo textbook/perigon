@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 
 import { PersonService } from './person.service';
+import { Person } from './person';
 
 @Component({
   selector: 'pgn-root',
@@ -8,11 +10,12 @@ import { PersonService } from './person.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'perigon';
+  person$: Observable<Person>;
 
   constructor(private service: PersonService) { }
 
   ngOnInit() {
+    this.person$ = this.service.randomUser$;
     this.service.getRandomUser();
   }
 }
