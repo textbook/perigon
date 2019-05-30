@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { Person } from '../person';
 
@@ -8,7 +8,7 @@ import { Person } from '../person';
   styleUrls: ['./person.component.scss']
 })
 export class PersonComponent implements OnInit {
-  person: Person;
+  @Input() person: Person;
 
   constructor() { }
 

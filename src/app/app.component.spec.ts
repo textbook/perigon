@@ -4,6 +4,7 @@ import { Subject } from 'rxjs';
 import { AppComponent } from './app.component';
 import { PersonService } from './person.service';
 import { Person } from './person';
+import { PersonComponent } from './person/person.component';
 
 const person: Person = {
   gender: "male",
@@ -31,7 +32,8 @@ describe('AppComponent', () => {
 
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        PersonComponent
       ],
       providers: [
         { provide: PersonService, useValue: service }
