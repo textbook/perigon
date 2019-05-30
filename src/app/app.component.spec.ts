@@ -1,31 +1,27 @@
-import { TestBed, async } from '@angular/core/testing';
+import { TestBed, async, ComponentFixture } from '@angular/core/testing';
+
 import { AppComponent } from './app.component';
+import { PersonService } from './person.service';
 
 describe('AppComponent', () => {
+  let service: jasmine.SpyObj<PersonService>;
+
   beforeEach(async(() => {
+    service = jasmine.createSpyObj('PersonService', ['getRandomUser']);
     TestBed.configureTestingModule({
       declarations: [
         AppComponent
       ],
+      providers: [
+        { provide: PersonService, useValue: service }
+      ]
     }).compileComponents();
   }));
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
-  });
-
-  it(`should have as title 'perigon'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('perigon');
-  });
-
-  it('should render title in a h1 tag', () => {
-    const fixture = TestBed.createComponent(AppComponent);
+  it('should fetch a random user from the service', () => {
+    const fixture: ComponentFixture<AppComponent> = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to perigon!');
+
+    expect(service.getRandomUser).toHaveBeenCalled();
   });
 });
