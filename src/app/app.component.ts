@@ -17,6 +17,10 @@ export class AppComponent implements OnInit {
    }
 
   ngOnInit() {
+    this.refresh();
+  }
+
+  refresh() {
     this.service.getRandomUser();
   }
 }
