@@ -1,2 +1,4 @@
-<p class="first-name">{{ firstName }}</p>
-<img [src]="person?.picture?.medium" [alt]="'A picture of ' + firstName">
+<div *ngIf="person">
+  <p class="first-name">{{ person.name.first | titlecase }}</p>
+  <img [src]="person.picture.medium" [alt]="'A picture of ' + firstName">
+</div>
