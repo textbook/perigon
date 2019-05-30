@@ -12,6 +12,10 @@ export class PersonService {
   constructor(private http: HttpClient) { }
 
   getRandomUser() {
-    this.http.get('https://randomuser.me/api').subscribe();
+    this.http
+      .get('https://randomuser.me/api')
+      .subscribe((result: any) => {
+        this.randomUserSubject.next(result.results[0]);
+      });
   }
 }
