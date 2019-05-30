@@ -5,6 +5,7 @@ import {
 } from '@angular/common/http/testing';
 
 import { PersonService } from './person.service';
+import { Person } from './person';
 
 describe('PersonService', () => {
   let httpMock: HttpTestingController;
@@ -29,7 +30,19 @@ describe('PersonService', () => {
   });
 
   it('should expose the fetched data', done => {
-    const randomUser = {};
+    const randomUser: Person = {
+      gender: "female",
+      name: {
+        title: "miss",
+        first: "idalina",
+        last: "da paz"
+      },
+      picture: {
+        large: "https://randomuser.me/api/portraits/women/93.jpg",
+        medium: "https://randomuser.me/api/portraits/med/women/93.jpg",
+        thumbnail: "https://randomuser.me/api/portraits/thumb/women/93.jpg"
+      },
+    };
     service.getRandomUser();
 
     httpMock
