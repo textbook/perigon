@@ -1,27 +1,26 @@
 # Perigon
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.0.
+This repository is intended to accompany an introductory presentation about
+Angular. It was created using the Angular CLI, and follows the guidance given
+[here][1] to set it up for a live coding demo.
 
-## Development server
+## Configuration
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+You need to set up the following aliases:
 
-## Code scaffolding
+```
+git config --global alias.next '!git checkout `git rev-list HEAD..demo-end | tail -1`'
+git config --global alias.prev 'checkout HEAD^'
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+For the Angular CLI commands, so you can e.g. run the tests on a watch as you
+go, `npm install @angular/cli`.
 
-## Build
+## Presenting
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+After you clone the repo, `git checkout demo-start` to go to the beginning. As
+you go through each step, use `git next` to move on to the next commit. If you
+need to go back, use `git prev`. Once you've reached the `demo-end` tag,
+you're done!
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+ [1]: https://blog.jayway.com/2015/03/30/using-git-commits-to-drive-a-live-coding-session/
