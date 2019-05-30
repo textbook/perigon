@@ -39,4 +39,9 @@ describe('PersonComponent', () => {
     expect(fixture.nativeElement.querySelector('.first-name').textContent)
       .toBe('Cosimo');
   });
+
+  it('should display their picture', () => {
+    expect(fixture.nativeElement.querySelector('img').src)
+      .toBe(person.picture.medium);
+  });
 });
