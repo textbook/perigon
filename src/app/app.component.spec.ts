@@ -57,4 +57,9 @@ describe('AppComponent', () => {
     expect(fixture.nativeElement.querySelector('.first-name').textContent)
       .toBe("Ramon");
   });
+
+  it('should have a refresh button', () => {
+    expect(fixture.nativeElement.querySelector('button').textContent)
+      .toEqual('Refresh');
+  });
 });
