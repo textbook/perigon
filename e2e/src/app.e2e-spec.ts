@@ -13,6 +13,14 @@ describe('workspace-project App', () => {
     expect(page.getName()).not.toEqual('');
   });
 
+  it('should refresh the person when requested', () => {
+    const startName = page.getName();
+
+    page.refreshPerson();
+
+    expect(page.getName()).not.toEqual(startName);
+  });
+
   afterEach(async () => {
     // Assert that there are no errors emitted from the browser
     const logs = await browser.manage().logs().get(logging.Type.BROWSER);
