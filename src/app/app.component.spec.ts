@@ -62,4 +62,13 @@ describe('AppComponent', () => {
     expect(fixture.nativeElement.querySelector('button').textContent)
       .toEqual('Refresh');
   });
+
+  it('should fetch a new user when the button is clicked', () => {
+    service.getRandomUser.calls.reset();
+
+    fixture.nativeElement.querySelector('button').click();
+    fixture.detectChanges();
+
+    expect(service.getRandomUser).toHaveBeenCalled();
+  });
 });
